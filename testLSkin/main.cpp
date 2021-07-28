@@ -14,7 +14,11 @@ int _stdcall WinMain(
 	//消息循环对象
 	Application app;
 	//主窗口
-	DesktopBar mainForm;
+	//DesktopBar mainForm;
+
+	Form mainForm;
+	mainForm.setSize({800,600});
+
 	//按钮
 	Button btn;
 	btn.setText("按钮");

@@ -52,25 +52,25 @@ void DesktopBar::onPaint(PaintEventArgs * e)
 	e->graphics->Opt();
 	Form::onPaint(e);
 
-	////±³¾°È¦
-	//e->graphics->FillRect(Rect(0, 0, width(), height()), Color(200, 111, 175, 229));
+	//±³¾°È¦
+	e->graphics->FillRect(Rect(0, 0, width(), height()), Color(200, 111, 175, 229));
 
-	////ÄÚÈ¦
-	//Gdiplus::SolidBrush sb2(Color(255, 61, 153, 228));
-	//e->graphics->FillEllipse(&sb2, Rect(4, 4, width() - 4 * 2, height() - 4 * 2));
+	//ÄÚÈ¦
+	Gdiplus::SolidBrush sb2(Color(255, 61, 153, 228));
+	e->graphics->FillEllipse(&sb2, Rect(4, 4, width() - 4 * 2, height() - 4 * 2));
 
-	//////ÄÚÈ¦±ß¿ò
-	////Gdiplus::Pen pen(Color(0, 0, 0));
-	////e->graphics->DrawEllipse(&pen, Rect(0, 0, width(), height()));
+	////ÄÚÈ¦±ß¿ò
+	//Gdiplus::Pen pen(Color(0, 0, 0));
+	//e->graphics->DrawEllipse(&pen, Rect(0, 0, width(), height()));
 
-	////»­ÎÄ×ÖµÄ
-	//Gdiplus::FontFamily ff(L"Microsoft YaHei");
-	//Gdiplus::Font f(&ff, 15);
-	//Gdiplus::SolidBrush sbf(Color(255, 255, 200));
-	//StringFormat sf;
-	//sf.SetAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
-	//sf.SetLineAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
+	//»­ÎÄ×ÖµÄ
+	Gdiplus::FontFamily ff(L"Microsoft YaHei");
+	Gdiplus::Font f(&ff, 15);
+	Gdiplus::SolidBrush sbf(Color(255, 255, 200));
+	StringFormat sf;
+	sf.SetAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
+	sf.SetLineAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
 	//std::wstring wtext = Text::ANSIToUniCode(std::to_string(value) + "%");
-	//e->graphics->DrawString(wtext.c_str(), wtext.length(), &f, RectF(0, 1, width(), height()), &sf, &sbf);
+	e->graphics->DrawString(L"100%",3, &f, RectF(0, 1, width(), height()), &sf, &sbf);
 
 }

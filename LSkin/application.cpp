@@ -3,7 +3,7 @@
 namespace LSkin {
 	int runningTotal = 0;
 	LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
-		LONG objPtr = GetWindowLongPtr(hwnd, GWL_USERDATA);
+		LONG objPtr = GetWindowLong(hwnd, GWLP_USERDATA);
 		if (objPtr) {
 			LSkin::Control *ptr = (LSkin::Control*)objPtr;
 			//交予实例对象去处理这个函数并返回

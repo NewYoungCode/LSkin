@@ -5,7 +5,7 @@ namespace LSkin {
 	{
 		hWnd = CreateWindowA(className.data(), "Helo World", WS_OVERLAPPEDWINDOW,
 			0, 0, 100, 30, 0, nullptr, 0, nullptr);
-		SetWindowLongPtr(hWnd, GWL_USERDATA, (LONG)this);
+		SetWindowLong(hWnd, GWLP_USERDATA, (LONG)this);
 		_isForm = true;
 		setTransparent(false);
 		setBackgroundColor(Color(240, 240, 240));

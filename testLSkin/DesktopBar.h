@@ -3,7 +3,6 @@
 #include "../LSkin/form.h"
 #include "../LSkin/button.h"
 #include <thread>
-#include <Gdiplus.hpp>
 using namespace LSkin;
 class DesktopBar :public Form
 {

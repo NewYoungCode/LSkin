@@ -8,7 +8,7 @@ namespace LSkin {
 	Control::Control() {
 		hWnd = CreateWindowA(className.c_str(), "Helo World", WS_POPUP,
 			0, 0, 100, 30, 0, nullptr, 0, nullptr);
-		SetWindowLongPtr(hWnd, GWL_USERDATA, (LONG)this);
+		SetWindowLong(hWnd, GWLP_USERDATA, (LONG)this);
 		setBackgroundColor(_backgroundColor);
 		Gdiplus::FontFamily ff(L"Microsoft YaHei");
 		Gdiplus::Font *f = new Gdiplus::Font(&ff, 10);
@@ -18,7 +18,7 @@ namespace LSkin {
 	{
 		hWnd = CreateWindowA(className.c_str(), "Helo World", WS_POPUP,
 			0, 0, 100, 30, 0, nullptr, 0, nullptr);
-		SetWindowLongPtr(hWnd, GWL_USERDATA, (LONG)this);
+		SetWindowLong(hWnd, GWLP_USERDATA, (LONG)this);
 		setBackgroundColor(_backgroundColor);
 		Gdiplus::FontFamily ff(L"Microsoft YaHei");
 		Gdiplus::Font *f = new Gdiplus::Font(&ff, 10);
@@ -286,7 +286,7 @@ namespace LSkin {
 			StringFormat sf;
 			sf.SetAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
 			sf.SetLineAlignment(GDIPLUS::StringAlignment::StringAlignmentCenter);
-			std::wstring wtext = Text::ANSIToUniCode(_text);
+			std::wstring wtext = L"test";//Text::ANSIToUniCode(_text);
 			e->graphics->DrawString(wtext.c_str(), wtext.length(), font(), RectF(0, 0, w, h), &sf, &sb);
 		}
 

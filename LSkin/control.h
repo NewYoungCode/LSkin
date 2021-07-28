@@ -1,5 +1,4 @@
 #pragma once
-#include "common.hpp"
 #pragma once
 #include <Windows.h>
 #include <windowsx.h>

@@ -9,7 +9,7 @@
 #ifdef _WINDLL
 #define export __declspec(dllexport)
 #else // _WINDLL
-#define export __declspec(dllimport)
+#define export 
 #endif
 
 namespace LSkin {
