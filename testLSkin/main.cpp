@@ -17,7 +17,14 @@ int _stdcall WinMain(
 	//DesktopBar mainForm;
 
 	Form mainForm;
+	mainForm.setText("hello");
 	mainForm.setSize({800,600});
+
+	Form f2;
+	f2.setText("test2");
+	f2.setSize({ 500,300 });
+	f2.show();
+
 
 	//按钮
 	Button btn;
@@ -32,6 +39,7 @@ int _stdcall WinMain(
 	btn2.setRect({ 300,300,100,80 });
 	btn2.setRadius(80);//锐角
 	btn2.setBackgroundColor(Color(255,100,255));
+	btn2.setTransparent(true);
 	mainForm.addControl(&btn2);
 	btn2.setAnchorStyle(AnchorStyle::Right);//自动向右边对齐
 

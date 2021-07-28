@@ -581,22 +581,22 @@ namespace LSkin {
 			HDC hdc = BeginPaint(hwnd, &pst);
 			//从dc画布中创建绘图类
 			Graphics gp(hdc);
-			if (doubleBuffered()) {
-				//申请一块内存中的画布
-				Bitmap temp(width(),height());
-				//从内存画布中创建绘图类
-				Graphics gptemp(&temp);
-				//参数
-				PaintEventArgs args;
-				args.graphics = &gptemp;
-				//交给虚函数去绘图
-				onPaint(&args);
-				//绘图完成之后将内存中的画布贴到DC上
-				gp.DrawImage(&temp, Rect(0, 0, width(), height()));
-				//结束绘图
-				EndPaint(hwnd, &pst);
-				break;
-			}
+			//if (doubleBuffered()) {
+			//	//申请一块内存中的画布
+			//	Bitmap temp(width(),height());
+			//	//从内存画布中创建绘图类
+			//	Graphics gptemp(&temp);
+			//	//参数
+			//	PaintEventArgs args;
+			//	args.graphics = &gptemp;
+			//	//交给虚函数去绘图
+			//	onPaint(&args);
+			//	//绘图完成之后将内存中的画布贴到DC上
+			//	gp.DrawImage(&temp, Rect(0, 0, width(), height()));
+			//	//结束绘图
+			//	EndPaint(hwnd, &pst);
+			//	break;
+			//}
 			PaintEventArgs args;
 			args.graphics = &gp;
 			args.pst = pst;

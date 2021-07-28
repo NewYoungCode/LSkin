@@ -16,20 +16,19 @@ namespace LSkin {
 	}
 	void Button::onPaint( PaintEventArgs * e)
 	{
-		if (mouseIn) {
-			Control::onPaint(e);
-			Rect r(0, 0, width(), height());
-			Gdiplus::SolidBrush sb(Color(129, 192, 255));
-			Gdiplus::Pen p(&sb, 1);
-			e->graphics->FillRect(r, Color(50, 201, 222, 245));
-			e->graphics->DrawRectangle(&p, r);
-		}
-		else {
-			Control::onPaint(e);
-			Rect r(0, 0, width(), height());
-			Gdiplus::SolidBrush sb(Color(204, 206, 219));
-			Gdiplus::Pen p(&sb, 1);
-			e->graphics->DrawRectangle(&p, r);
-		}
+		//if (mouseIn) {
+		//	Rect r(0, 0, width(), height());
+		//	Gdiplus::SolidBrush sb(Color(129, 192, 255));
+		//	Gdiplus::Pen p(&sb, 1);
+		//	e->graphics->FillRect(r, Color(50, 201, 222, 245));
+		//	e->graphics->DrawRectangle(&p, r);
+		//}
+		//else {
+		//	Rect r(0, 0, width(), height());
+		//	Gdiplus::SolidBrush sb(Color(204, 206, 219));
+		//	Gdiplus::Pen p(&sb, 1);
+		//	e->graphics->DrawRectangle(&p, r);
+		//}
+		__super::onPaint(e);
 	}
 }

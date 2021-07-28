@@ -35,7 +35,7 @@ namespace  LSkin {
 		Color	_foreColor = Color(254, 254, 254);
 		TextAlign _align = TextAlign::MiddleCenter;
 		int _radius = 0;
-		bool _transparent = true;
+		bool _transparent = false;
 		Bitmap *_backImage = 0;
 		Bitmap *_foreImage = 0;
 		AnchorStyle _anchorStle = (AnchorStyle)(AnchorStyle::Top | AnchorStyle::Left);
