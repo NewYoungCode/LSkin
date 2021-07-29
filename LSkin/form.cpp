@@ -46,8 +46,8 @@ namespace LSkin {
 		//}
 		case WM_DESTROY:
 		{
-			runningTotal--;
-			if (runningTotal <= 0) {
+			removeForm(1);
+			if (getFormCount() <= 0) {
 				PostQuitMessage(0);
 			}
 			break;
@@ -84,7 +84,7 @@ namespace LSkin {
 		Control::show(nCmdShow);
 		if (_fristRun) {
 			_fristRun = false;
-			runningTotal++;
+			addForm(1);
 		}
 	}
 	Rect Form::rect() {
@@ -99,7 +99,7 @@ namespace LSkin {
 		ShowWindow(hWnd, SW_SHOW);
 		if (_fristRun) {
 			_fristRun = false;
-			runningTotal++;
+			addForm(1);
 		}
 	}
 }

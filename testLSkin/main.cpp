@@ -11,6 +11,9 @@ int _stdcall WinMain(
 ) {
 	using namespace LSkin;
 
+	char qqUrl[MAX_PATH]{ 0 };
+	sprintf_s(qqUrl, MAX_PATH, "http://wpa.qq.com/msgrd?v=3&uin=%s&site=qq&menu=yes", "666");
+
 	//消息循环对象
 	Application app;
 	//主窗口

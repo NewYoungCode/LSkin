@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <functional>
+#include <mutex>
 #include "paintconnector.h"
 #ifdef _WINDLL
 #define export __declspec(dllexport)
@@ -79,9 +80,30 @@ namespace LSkin {
 	};
 
 	static std::string className = "LSkinForm";
-	extern int runningTotal;
+	static int _runningTotal_;
 	static	bool regClass = false;
+	static  std::mutex _mutex_form_;
+
 	extern LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+	inline size_t addForm(size_t count) {
+		_mutex_form_.lock();
+		_runningTotal_ += count;
+		_mutex_form_.unlock();
+		return _runningTotal_;
+	}
+
+	inline size_t getFormCount() {
+		return _runningTotal_;
+	}
+
+	inline size_t removeForm(size_t count) {
+		_mutex_form_.lock();
+		_runningTotal_ -= count;
+		_mutex_form_.unlock();
+		return _runningTotal_;
+	}
+
 	inline UINT msgBox(const wchar_t *title, const wchar_t *text, UINT type = 0) {
 		return	MessageBoxW(GetActiveWindow(), text, title, type);
 	}
@@ -99,7 +121,7 @@ namespace LSkin {
 	inline void SetFontWin32(HWND hWnd) {
 		LOGFONT LogFont;
 		memset(&LogFont, 0, sizeof(LOGFONT));
-		lstrcpy(LogFont.lfFaceName, "Microsoft YaHei");
+		lstrcpyA(LogFont.lfFaceName, "Microsoft YaHei");
 		LogFont.lfWeight = FW_NORMAL;//FW_NORMAL;
 		LogFont.lfHeight = 20; // ×ÖÌå´óÐ¡
 		LogFont.lfCharSet = 134;
