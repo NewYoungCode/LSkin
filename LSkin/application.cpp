@@ -12,7 +12,7 @@ namespace LSkin {
 		return DefWindowProc(hwnd, message, wParam, lParam);
 	}
 	Application::Application()
-	{  
+	{
 		_paintConnector = new PaintConnector();
 		_paintConnector->Init();
 		if (!LSkin::regClass) {
@@ -56,7 +56,7 @@ namespace LSkin {
 			return msg.wParam;
 		}
 	}
-	void Application::exit()
+	void  Application::exit()
 	{
 		PostQuitMessage(0);
 	}

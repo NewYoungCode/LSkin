@@ -1,12 +1,16 @@
 #include "Application.h"
 
-BOOL CALLBACK DialogProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+BOOL CALLBACK Global_DialogProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	return 0;
-	return WndProc(hWnd, uMsg, wParam, lParam);
+	LONG USERDATA = GetWindowLong(hWnd, GWLP_USERDATA);
+	Control *ctrPtr = dynamic_cast<Control*>((Control*)USERDATA);
+	if (ctrPtr) {
+		return ctrPtr->WndProc(hWnd, uMsg, wParam, lParam);
+	}
+	return FALSE;
 }
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK Global_WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	LONG objPtr = GetWindowLong(hwnd, GWLP_USERDATA);
 	//if (objPtr) {
 	//	LSkin::Control *ptr = (LSkin::Control*)objPtr;
@@ -21,7 +25,7 @@ Application::Application() {
 	HINSTANCE hInstance = GetModuleHandle(0);
 	WNDCLASS     wc;
 	wc.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS | CS_OWNDC | CS_SAVEBITS;
-	wc.lpfnWndProc = WndProc;
+	wc.lpfnWndProc = Global_WndProc;
 	wc.cbClsExtra = NULL;
 	wc.cbWndExtra = NULL;
 	wc.hInstance = hInstance;
@@ -51,7 +55,7 @@ int Application::exec()
 	}
 }
 
-void Application::exit()
-{
+void Application::exit() {
 	PostQuitMessage(0);
 }
+

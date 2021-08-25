@@ -144,6 +144,6 @@ namespace LSkin {
 		Application();
 		~Application();
 		int exec();
-		void exit();
+		static void exit();
 	};
 };
