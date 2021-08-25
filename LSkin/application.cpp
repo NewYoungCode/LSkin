@@ -1,6 +1,7 @@
 #include "application.h"
 #include "control.h"
 namespace LSkin {
+
 	LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
 		LONG objPtr = GetWindowLong(hwnd, GWLP_USERDATA);
 		if (objPtr) {

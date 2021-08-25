@@ -84,6 +84,7 @@ namespace LSkin {
 	static	bool regClass = false;
 	static  std::mutex _mutex_form_;
 
+	
 	extern LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 	inline size_t addForm(size_t count) {
