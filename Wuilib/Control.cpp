@@ -21,6 +21,11 @@ Control Control::GetDlgItem(int resourceId) {
 BOOL  Control::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 
+	if (uMsg == WM_NOTIFY) {
+	
+
+	}
+
 	/*if (uMsg == WM_ERASEBKGND) {
 		return true;
 	}*/

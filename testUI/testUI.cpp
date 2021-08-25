@@ -42,10 +42,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	Application app;
 	Gdiplus::Init();
 
-	MainFrm mainFrm(IDD_DIALOG1);
+	MainFrm mainFrm(IDD_DIALOG1); //从资源里面创建对话框
 	mainFrm.SetText(TEXT("这是窗口1"));
 	mainFrm.SetRect({ 0,0,800,600 });
 	mainFrm.Show();
+
+
+	Control custCtr = mainFrm.GetDlgItem(IDC_CUSTOM1);
+
+
 
 	return app.exec();
 }
